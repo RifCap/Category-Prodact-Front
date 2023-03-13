@@ -1,0 +1,35 @@
+<table class="table" mat-table>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Description</th>
+        <th scope="col" colspan="2">
+          
+            <button class="btn btn-primary" (click)="onClickOpen('add')">Ajouter</button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let category of categories; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ category.nom }}</td>
+        <td>{{ category.description }}</td>
+        <td>
+          <button class="btn btn-success" (click)="onClickOpen('edit', category)">Modifier</button>
+        </td>
+        <td>
+          <a><button class="btn btn-danger" (click)="onClickOpen('delete', category)">suppriemr</button></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <nav>
+    <ul>
+        <li><a (click)="goToPreviousPage()">Previous</a></li>
+      <li *ngFor="let page of pages">
+        <a (click)="onPageChange(page)">{{ page }}</a>
+      </li>
+      <li><a (click)="goToNextPage()">Next</a></li>
+    </ul>
+  </nav>
